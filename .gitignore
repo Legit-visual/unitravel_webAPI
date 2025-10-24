@@ -1,0 +1,28 @@
+# Build výstupy
+bin/
+obj/
+
+# Uživatelská konfigurace
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Závislosti (pokud bys měl node)
+node_modules/
+
+# Env soubory a tajnosti
+.env
+secrets.json
+
+# Publish výstup
+out/
+publish/
+
+# Logy
+*.log
+
+# VSCode nebo Rider nastavení (pokud nechceš sdílet)
+.vscode/
+.idea/
+.vs
