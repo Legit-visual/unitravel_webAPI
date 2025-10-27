@@ -1,4 +1,5 @@
 using DotNetEnv;
+using unitravel_webAPI.Models;
 namespace unitravel_webAPI
 {
     public class Program
@@ -9,10 +10,14 @@ namespace unitravel_webAPI
 
             // Adding .env suuport
             DotNetEnv.Env.Load();
-            string API_USERNAME = Environment.GetEnvironmentVariable("API_USERNAME") ?? string.Empty;
-            string API_PASSWORD = Environment.GetEnvironmentVariable("API_PASSWORD") ?? string.Empty;
 
-            // idk something blah blah idk pls work
+            // Credentials class, which can be used for further communication
+            ApiCredentials credentials = new ApiCredentials
+            {
+                Username = Environment.GetEnvironmentVariable("API_USERNAME") ?? string.Empty,
+                Password = Environment.GetEnvironmentVariable("API_PASSWORD") ?? string.Empty
+            };
+
             // Add services to the container.
 
             builder.Services.AddControllers();
