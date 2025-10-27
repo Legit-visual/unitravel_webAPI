@@ -12,7 +12,7 @@ namespace unitravel_webAPI
             string API_USERNAME = Environment.GetEnvironmentVariable("API_USERNAME") ?? string.Empty;
             string API_PASSWORD = Environment.GetEnvironmentVariable("API_PASSWORD") ?? string.Empty;
 
-            // idk something really interesting blah blah blah
+            // idk something
             // Add services to the container.
 
             builder.Services.AddControllers();
