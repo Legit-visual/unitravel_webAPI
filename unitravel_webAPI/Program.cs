@@ -1,5 +1,7 @@
 using DotNetEnv;
 using unitravel_webAPI.Helpers;
+using unitravel_webAPI.Services.Implementations;
+using unitravel_webAPI.Services.Interfaces;
 
 namespace unitravel_webAPI
 {
@@ -27,12 +29,14 @@ namespace unitravel_webAPI
 
             builder.Services.AddControllers();
 
+            builder.Services.AddHttpClient<ISearchService, SearchService>();
+            
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
             //builder.Services.AddOpenApi();
-
+            
             var app = builder.Build();  
 
             // Configure the HTTP request pipeline.
