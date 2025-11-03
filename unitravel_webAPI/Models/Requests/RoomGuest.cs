@@ -1,22 +1,28 @@
-﻿namespace unitravel_webAPI.Models.Requests
+﻿using Newtonsoft.Json;
+using System.Text.Json.Serialization;
+
+namespace unitravel_webAPI.Models.Requests
 {
     public class RoomGuest
     {
-        public int NumberOfAdults { get; set; }
-        public int NumberOfChildren { get; set; }
+        [JsonProperty("Adults")]
+        public int Adults { get; set; }
+        [JsonProperty("Children")]
+        public int Children { get; set; }
+        [JsonProperty("ChildrenAges")]
         public List<int>? ChildrenAges { get; set; }
 
         public RoomGuest(int numberOfAdults, int numberOfChildren, List<int>? childrenAges)
         {
-            NumberOfAdults = numberOfAdults;
-            NumberOfChildren = numberOfChildren;
+            Adults = numberOfAdults;
+            Children = numberOfChildren;
             ChildrenAges = childrenAges;
         }
 
         public RoomGuest()
         {
-            NumberOfAdults = 0;
-            NumberOfChildren = 0;
+            Adults = 0;
+            Children = 0;
             ChildrenAges = null;
         }
     }
