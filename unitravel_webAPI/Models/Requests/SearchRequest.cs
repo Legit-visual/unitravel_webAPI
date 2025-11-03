@@ -20,7 +20,7 @@ namespace unitravel_webAPI.Models.Requests
         [JsonProperty("IsDetailedResponse")]
         public bool IsDetailedResponse { get; set; }
         [JsonProperty("Filters")]
-        public SearchFilters? SearchFilters { get; set; }
+        public SearchFilters? Filters { get; set; }
 
         public SearchRequest(string checkIn, string checkOut, string hotelCodes, string guestNationality, List<RoomGuest> paxRooms, int responseTime, bool isDetailedResponse, SearchFilters? searchFilters)
         {
@@ -31,7 +31,7 @@ namespace unitravel_webAPI.Models.Requests
             PaxRooms = paxRooms;
             ResponseTime = responseTime;
             IsDetailedResponse = isDetailedResponse;
-            SearchFilters = searchFilters;
+            Filters = searchFilters;
         }
 
         public SearchRequest()
@@ -43,7 +43,7 @@ namespace unitravel_webAPI.Models.Requests
             PaxRooms = new List<RoomGuest>();
             ResponseTime = 23;
             IsDetailedResponse = false;
-            SearchFilters = null;
+            Filters = null;
 
         }
     }

@@ -30,6 +30,7 @@ namespace unitravel_webAPI
             builder.Services.AddControllers();
 
             builder.Services.AddHttpClient<ISearchService, SearchService>();
+            builder.Services.AddHttpClient<IPrebookService, PrebookService>();
             
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
