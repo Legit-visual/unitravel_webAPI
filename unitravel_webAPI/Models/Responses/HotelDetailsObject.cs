@@ -2,7 +2,7 @@
 
 namespace unitravel_webAPI.Models.Responses
 {
-    public class HotelDetails
+    public class HotelDetailsObject
     {
         [JsonProperty("HotelName")]
         public string HotelName { get; set; }
@@ -17,7 +17,7 @@ namespace unitravel_webAPI.Models.Responses
         [JsonProperty("City")]
         public string City { get; set; }
 
-        public HotelDetails()
+        public HotelDetailsObject()
         {
             HotelName = string.Empty;
             Rating = string.Empty;
@@ -27,7 +27,7 @@ namespace unitravel_webAPI.Models.Responses
             City = string.Empty;
         }
 
-        public HotelDetails(string hotelName, string rating, string addressLine1, string addressLine2, string map, string city)
+        public HotelDetailsObject(string hotelName, string rating, string addressLine1, string addressLine2, string map, string city)
         {
             HotelName = hotelName;
             Rating = rating;

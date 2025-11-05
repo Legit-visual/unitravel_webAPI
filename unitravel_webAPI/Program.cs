@@ -34,6 +34,12 @@ namespace unitravel_webAPI
             builder.Services.AddHttpClient<IBookService, BookService>();
             builder.Services.AddHttpClient<ICancelService, CancelService>();
             builder.Services.AddHttpClient<IBookingDetailService, BookingDetailService>();
+            builder.Services.AddHttpClient<ICountryListService, CountryListService>();
+            builder.Services.AddHttpClient<ICityListService, CityListService>();
+            builder.Services.AddHttpClient<IHotelCodeListService, HotelCodeListService>();
+            builder.Services.AddHttpClient<IHotelDetailsService, HotelDetailsService>();
+            builder.Services.AddHttpClient<IHotelBookingDetailsBasedOnDateService, HotelBookingDetailBasedOnDateService>();
+            builder.Services.AddHttpClient<ITboHotelCodeListService, TBoHotelCodeListService>();
             
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
