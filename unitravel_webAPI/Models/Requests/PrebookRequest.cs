@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System.Text.Json;
+using unitravel_webAPI.Models.Responses;
 
 namespace unitravel_webAPI.Models.Requests
 {
@@ -19,7 +20,7 @@ namespace unitravel_webAPI.Models.Requests
         public PrebookRequest(string bookingCode, string paymentMode)
         {
             BookingCode = bookingCode;
-            PaymentMode = paymentMode;
+            PaymentMode = Validate.PaymentMode(paymentMode);
         }
     }
 }

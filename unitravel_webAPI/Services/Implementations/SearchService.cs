@@ -22,9 +22,15 @@ namespace unitravel_webAPI.Services.Implementations
 
         public async Task<SearchResult?> SearchAsync(SearchRequest request)
         {
+            if(request == null) return null;
+
             var authBytes = Encoding.ASCII.GetBytes($"{_credentials.Username}:{_credentials.Password}");
             _httpClient.DefaultRequestHeaders.Authorization =
                 new System.Net.Http.Headers.AuthenticationHeaderValue("Basic", Convert.ToBase64String(authBytes));
+
+            if(request.Filters != null && request.Filters.MealType != null)
+                Validate.MealType(request.Filters.MealType);
+            // Validate other request parameters as needed
 
             //var response = await _httpClient.PostAsJsonAsync($"{_credentials.BaseUrl}/Search", request);
             var json = JsonConvert.SerializeObject(request, new JsonSerializerSettings

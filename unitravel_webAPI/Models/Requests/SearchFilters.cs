@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System.Text.Json.Serialization;
+using unitravel_webAPI.Models.Responses;
 
 namespace unitravel_webAPI.Models.Requests
 {
@@ -17,6 +18,12 @@ namespace unitravel_webAPI.Models.Requests
             Refundable = false;
             NumberOfRooms = 0;
             MealType = string.Empty;
+        }
+        public SearchFilters(bool refundable, int numberOfRooms, string mealType)
+        {
+            Refundable = refundable;
+            NumberOfRooms = numberOfRooms;
+            MealType = mealType;
         }
     }
 }
