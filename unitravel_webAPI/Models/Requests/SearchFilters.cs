@@ -12,6 +12,7 @@ namespace unitravel_webAPI.Models.Requests
         public int NumberOfRooms { get; set; }
         [JsonProperty("MealType")]
         public string MealType { get; set; }
+        public string PaxType { get; set; }
 
         public SearchFilters()
         {

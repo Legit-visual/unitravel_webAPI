@@ -32,6 +32,22 @@ namespace unitravel_webAPI.Services.Implementations
                 Validate.MealType(request.Filters.MealType);
             // Validate other request parameters as needed
 
+            if (request.Filters != null && request.Filters.PaxType != null)
+                Validate.PaxType(request.Filters.PaxType);
+
+            if (request.Filters != null && request.Filters.MealPlan != null)
+                Validate.MealPlan(request.Filters.MealPlan);
+
+            if (request.Filters != null && request.Filters.StarRating != null)
+                Validate.StarRating(request.Filters.StarRating);
+
+            if (request.Filters != null && request.Filters.BookingStatus != null)
+                Validate.BookingStatus(request.Filters.BookingStatus);
+
+            if (request.Filters != null && request.Filters.BookingType != null)
+                Validate.BookingType(request.Filters.BookingType);          
+
+
             //var response = await _httpClient.PostAsJsonAsync($"{_credentials.BaseUrl}/Search", request);
             var json = JsonConvert.SerializeObject(request, new JsonSerializerSettings
             {
