@@ -64,7 +64,7 @@ namespace unitravel_webAPI
 
             app.UseAuthorization();
 
-            app.MapGet("/health", () => "OK");
+            app.MapGet("/health", () => "OK - Works fine");
 
             app.MapControllers();
 
