@@ -32,6 +32,7 @@ namespace unitravel_webAPI.Services.Implementations
                 Validate.MealType(request.Filters.MealType);
             // Validate other request parameters as needed
 
+            /*
             if (request.Filters != null && request.Filters.PaxType != null)
                 Validate.PaxType(request.Filters.PaxType);
 
@@ -46,7 +47,7 @@ namespace unitravel_webAPI.Services.Implementations
 
             if (request.Filters != null && request.Filters.BookingType != null)
                 Validate.BookingType(request.Filters.BookingType);          
-
+            */
 
             //var response = await _httpClient.PostAsJsonAsync($"{_credentials.BaseUrl}/Search", request);
             var json = JsonConvert.SerializeObject(request, new JsonSerializerSettings

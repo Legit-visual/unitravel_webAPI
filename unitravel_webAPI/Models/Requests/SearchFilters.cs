@@ -19,12 +19,14 @@ namespace unitravel_webAPI.Models.Requests
             Refundable = false;
             NumberOfRooms = 0;
             MealType = string.Empty;
+            PaxType = string.Empty;
         }
-        public SearchFilters(bool refundable, int numberOfRooms, string mealType)
+        public SearchFilters(bool refundable, int numberOfRooms, string mealType, string paxType)
         {
             Refundable = refundable;
             NumberOfRooms = numberOfRooms;
             MealType = mealType;
+            PaxType = paxType;
         }
     }
 }
