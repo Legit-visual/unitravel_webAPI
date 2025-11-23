@@ -1,5 +1,6 @@
 using DotNetEnv;
 using unitravel_webAPI.Helpers;
+using unitravel_webAPI.Middleware;
 using unitravel_webAPI.Services.Implementations;
 using unitravel_webAPI.Services.Interfaces;
 
@@ -23,6 +24,15 @@ namespace unitravel_webAPI
                 options.BaseUrl = builder.Configuration["TBOAPI:BaseUrl"]!;
                 options.Username = builder.Configuration["TBO_USERNAME"] ?? throw new Exception("No variable in the .env file!");
                 options.Password = builder.Configuration["TBO_PASSWORD"] ?? throw new Exception("No variable in the .env file!");
+            });
+
+            builder.Services.AddSingleton<ApiKeySettings>(sp =>
+            {
+                var cfg = sp.GetRequiredService<IConfiguration>();
+                return new ApiKeySettings
+                {
+                    BridgeApiKey = cfg["BridgeApiKey"] ?? throw new Exception("Bridge API Key is not found in the env file!")
+                };
             });
 
             // Add services to the container.
@@ -60,6 +70,10 @@ namespace unitravel_webAPI
                 });
             }
 
+            app.UseRouting();
+
+            app.UseMiddleware<ApiKeyMiddleware>();
+            
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
