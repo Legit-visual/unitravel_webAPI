@@ -26,7 +26,7 @@ namespace unitravel_webAPI.Models.Responses.BookingDetail
         [JsonProperty("HotelDetails")]
         public HotelDetailsObject HotelDetails { get; set; }
         [JsonProperty("Rooms")]
-        public Rooms Rooms { get; set; }
+        public List<Rooms> Rooms { get; set; }
         [JsonProperty("CancelPolicies")]
         public List<CancelPolicy> CancelPolicies { get; set; }
         [JsonProperty("MealType")]
@@ -54,7 +54,7 @@ namespace unitravel_webAPI.Models.Responses.BookingDetail
             BookingDate = string.Empty;
             NoOfRooms = 0;
             HotelDetails = new HotelDetailsObject();
-            Rooms = new Rooms();
+            Rooms = new List<Rooms>();
             CancelPolicies = new List<CancelPolicy>();
             MealType = string.Empty;
             IsRefundable = false;
@@ -64,7 +64,7 @@ namespace unitravel_webAPI.Models.Responses.BookingDetail
             CreditCardOptions = new List<string>();
         }
 
-        public BookingDetail(string bookingStatus, string voucherStatus, string confirmationNumber, string hotelConfirmationNumber, string invoiceNumber, string checkIn, string checkOut, string bookingDate, int noOfRooms, HotelDetailsObject hotelDetails, Rooms rooms, List<CancelPolicy> cancelPolicies, string mealType, bool isRefundable, List<Supplements> supplements, List<CustomerDetails> customerDetails, List<string> rateConditions, List<string> creditCardOptions)
+        public BookingDetail(string bookingStatus, string voucherStatus, string confirmationNumber, string hotelConfirmationNumber, string invoiceNumber, string checkIn, string checkOut, string bookingDate, int noOfRooms, HotelDetailsObject hotelDetails, List<Rooms> rooms, List<CancelPolicy> cancelPolicies, string mealType, bool isRefundable, List<Supplements> supplements, List<CustomerDetails> customerDetails, List<string> rateConditions, List<string> creditCardOptions)
         {
             BookingStatus = bookingStatus;
             VoucherStatus = voucherStatus;

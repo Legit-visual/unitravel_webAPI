@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.Extensions.Options;
+using Newtonsoft.Json;
 using System.Text;
 using unitravel_webAPI.Helpers;
 using unitravel_webAPI.Models.Requests;
@@ -13,10 +14,10 @@ namespace unitravel_webAPI.Services.Implementations
         private readonly HttpClient _httpClient;
         private readonly ApiCredentials _credentials;
 
-        public BookingDetailService(HttpClient httpClient, ApiCredentials credentials)
+        public BookingDetailService(HttpClient httpClient, IOptions<ApiCredentials> credentials)
         {
             _httpClient = httpClient;
-            _credentials = credentials;
+            _credentials = credentials.Value;
         }
 
         public async Task<BookingDetailReponse?> BookingDetailAsync(BookingDetailRequest? request)
