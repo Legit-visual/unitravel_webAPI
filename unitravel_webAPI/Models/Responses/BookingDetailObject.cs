@@ -4,31 +4,31 @@ namespace unitravel_webAPI.Models.Responses
 {
     public class BookingDetailObject
     {
-        [JsonProperty("Index")]
+        [JsonProperty("index")]
         public string Index {  get; set; }
-        [JsonProperty("BookingId")]
+        [JsonProperty("bookingId")]
         public string BookingId { get; set; }
-        [JsonProperty("ConfirmationNo")]
+        [JsonProperty("confirmationNo")]
         public string ConfirmationNo { get; set; }
-        [JsonProperty("BookingDate")]
+        [JsonProperty("bookingDate")]
         public string BookingDate { get; set; }
-        [JsonProperty("Currency")]
+        [JsonProperty("currency")]
         public string Currency {  get; set; }
-        [JsonProperty("AgentMarkup")]
+        [JsonProperty("agentMarkup")]
         public string AgentMarkup { get; set; }
-        [JsonProperty("AgencyName")]
+        [JsonProperty("agencyName")]
         public string AgencyName { get; set; }
-        [JsonProperty("BookingPrice")]
+        [JsonProperty("bookingPrice")]
         public string BookingPrice { get; set; }
-        [JsonProperty("TripName")]
+        [JsonProperty("tripName")]
         public string TripName { get; set; }
         [JsonProperty("TBOHotelCode")]
         public string TBOHotelCode { get; set; }
-        [JsonProperty("CheckInDate")]
+        [JsonProperty("checkInDate")]
         public string CheckInDate { get; set; }
-        [JsonProperty("CheckOutDate")]
+        [JsonProperty("checkOutDate")]
         public string CheckOutDate { get; set; }
-        [JsonProperty("ClientReferenceNumber")]
+        [JsonProperty("clientReferenceNumber")]
         public string ClientReferenceNumber { get; set; }
 
         public BookingDetailObject()

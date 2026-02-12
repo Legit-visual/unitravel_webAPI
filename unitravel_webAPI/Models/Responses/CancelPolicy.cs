@@ -5,13 +5,13 @@ namespace unitravel_webAPI.Models.Responses
 {
     public class CancelPolicy
     {
-        [JsonProperty("Index")]
+        [JsonProperty("index")]
         public string Index {  get; set; }
-        [JsonProperty("FromDate")]
+        [JsonProperty("fromDate")]
         public string FromDate { get; set; } // using YYYY-MM-DD format
-        [JsonProperty("ChargeType")]
+        [JsonProperty("chargeType")]
         public string ChargeType { get; set; }
-        [JsonProperty("CancellationCharge")]
+        [JsonProperty("cancellationCharge")]
         public decimal CancallationCharge { get; set; }
 
         public CancelPolicy()

@@ -5,11 +5,11 @@ namespace unitravel_webAPI.Models.Responses
 {
     public class HotelResult
     {
-        [JsonProperty("HotelCode")]
+        [JsonProperty("hotelCode")]
         public string HotelCode { get; set; }
-        [JsonProperty("Currency")]
+        [JsonProperty("currency")]
         public string Currency {  get; set; }
-        [JsonProperty("Rooms")]
+        [JsonProperty("rooms")]
         public List<HotelRooms>? HotelRooms { get; set; }
 
         public HotelResult()

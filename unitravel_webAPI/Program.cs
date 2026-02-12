@@ -38,8 +38,17 @@ namespace unitravel_webAPI
             // Add services to the container.
 
             builder.Services.AddControllers();
+            builder.Services.AddControllers().AddNewtonsoftJson(options =>
+            {
+                options.SerializerSettings.ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver();
+                options.SerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.StringEnumConverter());
+                options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
+            });
 
-            builder.Services.AddHttpClient<ISearchService, SearchService>();
+            builder.Services.AddHttpClient<ISearchService, SearchService>().ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
+            {
+                AutomaticDecompression = System.Net.DecompressionMethods.GZip | System.Net.DecompressionMethods.Deflate
+            });
             builder.Services.AddHttpClient<IPrebookService, PrebookService>();
             builder.Services.AddHttpClient<IBookService, BookService>();
             builder.Services.AddHttpClient<ICancelService, CancelService>();
@@ -54,10 +63,13 @@ namespace unitravel_webAPI
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            builder.Services.AddMemoryCache();
+
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
             //builder.Services.AddOpenApi();
             
-            var app = builder.Build();  
+            var app = builder.Build();
+            app.UseMiddleware<ExceptionMiddleware>();
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())

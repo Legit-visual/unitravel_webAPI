@@ -5,36 +5,36 @@ namespace unitravel_webAPI.Models.Responses
 {
     public class HotelRooms
     {
-        [JsonProperty("Name")]
+        [JsonProperty("name")]
         public List<string> RoomName { get; set; }
-        [JsonProperty("BookingCode")]
+        [JsonProperty("bookingCode")]
         public string BookingCode { get; set; }
-        [JsonProperty("Inclusion")]
+        [JsonProperty("inclusion")]
         public string Inclusion {  get; set; }
-        [JsonProperty("DayRates")]
+        [JsonProperty("dayRates")]
         public List<List<DayRate>> DayRates { get; set; } // by documentation, this should be "List of Arrays", not sure if this is right representation
-        [JsonProperty("BasePrice")]
+        [JsonProperty("basePrice")]
         public decimal BasePrice { get; set; }
-        [JsonProperty("TotalFare")]
+        [JsonProperty("totalFare")]
         public decimal TotalFare { get; set; }
-        [JsonProperty("TotalTax")]
+        [JsonProperty("totalTax")]
         public decimal TotalTax { get; set; }
-        [JsonProperty("ExtraGuestCharges")]
+        [JsonProperty("extraGuestCharges")]
         public decimal ExtraGuestCharges { get; set; }
-        [JsonProperty("RecommendedSellingRate")]
+        [JsonProperty("recommendedSellingRate")]
         public string RecommendedSellingRate { get; set; }
-        [JsonProperty("RoomPromotion")]
+        [JsonProperty("roomPromotion")]
         public List<string> RoomPromotions { get; set; }
-        [JsonProperty("CancelPolicies")]
+        [JsonProperty("cancelPolicies")]
         public List<CancelPolicy>? CancelPolicies { get; set; }
-        [JsonProperty("MealType")]
+        [JsonProperty("mealType")]
         public string MealType {  get; set; } // only acceptable values - "Breakfast_For_2", "Breakfast_For_1", "All_Inclusive_All_Meal"
-        [JsonProperty("IsRefundable")]
+        [JsonProperty("isRefundable")]
         public bool IsRefundable { get; set; }
-        [JsonProperty("WithTransfers")]
+        [JsonProperty("withTransfers")]
         public bool WithTransfers { get; set; }
-        [JsonProperty("Supplements")]
-        public List<Supplements> Supplements { get; set; }
+        [JsonProperty("supplements")]
+        public List<List<Supplements>> Supplements { get; set; }
 
         public HotelRooms()
         {
@@ -52,13 +52,31 @@ namespace unitravel_webAPI.Models.Responses
             MealType = string.Empty;
             IsRefundable = false;
             WithTransfers = false;
-            Supplements = new List<Supplements>();
+            Supplements = new List<List<Supplements>>();
         }
 
+        public HotelRooms(List<string> roomName, string bookingCode, string inclusion, List<List<DayRate>> dayRates, decimal basePrice, decimal totalFare, decimal totalTax, decimal extraGuestCharges, string recommendedSellingRate, List<string> roomPromotions, List<CancelPolicy>? cancelPolicies, string mealType, bool isRefundable, bool withTransfers, List<List<Supplements>> supplements)
+        {
+            RoomName = roomName;
+            BookingCode = bookingCode;
+            Inclusion = inclusion;
+            DayRates = dayRates;
+            BasePrice = basePrice;
+            TotalFare = totalFare;
+            TotalTax = totalTax;
+            ExtraGuestCharges = extraGuestCharges;
+            RecommendedSellingRate = recommendedSellingRate;
+            RoomPromotions = roomPromotions;
+            CancelPolicies = cancelPolicies;
+            MealType = mealType;
+            IsRefundable = isRefundable;
+            WithTransfers = withTransfers;
+            Supplements = supplements;
+        }
     }
     public class DayRate
     {
-        [JsonProperty("BasePrice")]
+        [JsonProperty("basePrice")]
         public decimal BasePrice { get; set; }
         public DayRate()
         {

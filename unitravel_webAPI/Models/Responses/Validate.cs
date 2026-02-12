@@ -87,7 +87,8 @@ namespace unitravel_webAPI.Models.Responses
                 || string.Equals(mealType, "dinner", StringComparison.OrdinalIgnoreCase)
                 || string.Equals(mealType, "breakfast_lunch", StringComparison.OrdinalIgnoreCase)
                 || string.Equals(mealType, "breakfast_for_1", StringComparison.OrdinalIgnoreCase)
-                || string.Equals(mealType, "breakfast_for_2", StringComparison.OrdinalIgnoreCase))
+                || string.Equals(mealType, "breakfast_for_2", StringComparison.OrdinalIgnoreCase)
+                || string.Equals(mealType, "all", StringComparison.OrdinalIgnoreCase))
             {
                 return;
             }

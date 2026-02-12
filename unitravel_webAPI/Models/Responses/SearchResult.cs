@@ -5,9 +5,9 @@ namespace unitravel_webAPI.Models.Responses
 {
     public class SearchResult
     {
-        [JsonProperty("Status")]
+        [JsonProperty("status")]
         public StatusObject Status { get; set; }
-        [JsonProperty("HotelResult")]
+        [JsonProperty("hotelResult")]
         public List<HotelResult>? HotelResults { get; set; }
 
         public SearchResult()
@@ -22,6 +22,4 @@ namespace unitravel_webAPI.Models.Responses
             HotelResults = hotelResults;
         }
     }
-
-
 }

@@ -4,11 +4,11 @@ namespace unitravel_webAPI.Models.Responses
 {
     public class BookResult
     {
-        [JsonProperty("Status")]
+        [JsonProperty("status")]
         public StatusObject Status { get; set; }
-        [JsonProperty("ClientReferenceId")]
+        [JsonProperty("clientReferenceId")]
         public string ClientReferenceId { get; set; }
-        [JsonProperty("ConfirmationNumber")]
+        [JsonProperty("confirmationNumber")]
         public string ConfirmationNumber { get; set; }
 
         public BookResult()

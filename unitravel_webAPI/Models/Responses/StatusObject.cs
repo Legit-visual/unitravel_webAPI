@@ -5,9 +5,9 @@ namespace unitravel_webAPI.Models.Responses
 {
     public class StatusObject
     {
-        [JsonProperty("Code")]
+        [JsonProperty("code")]
         public int Code { get; set; }
-        [JsonProperty("Description")]
+        [JsonProperty("description")]
         public string Description { get; set; }
 
         public StatusObject()

@@ -28,6 +28,17 @@ namespace unitravel_webAPI.Controllers
                 Formatting = Formatting.None,
             }));
             var result = await _hotelDetailsService.HotelDetailsAsync(request);
+
+            if (result == null)
+            {
+                return BadRequest(new { error = "Service returned null (API Error or Deserialization failed)" });
+            }
+
+            if (result.HotelDetails == null || result.HotelDetails.Count == 0)
+            {
+                return Ok(result);
+            }
+
             return Ok(result);
         }
     }

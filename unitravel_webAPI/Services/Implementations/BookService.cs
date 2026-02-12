@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Options;
+﻿using Microsoft.Extensions.Caching.Memory;
+using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using System.Text;
 using unitravel_webAPI.Helpers;
@@ -21,6 +22,8 @@ namespace unitravel_webAPI.Services.Implementations
 
         public async Task<BookResult?> BookAsync(BookRequest request)
         {
+            
+            
             var authBytes = Encoding.ASCII.GetBytes($"{_credentials.Username}:{_credentials.Password}");
             _httpClient.DefaultRequestHeaders.Authorization =
                 new System.Net.Http.Headers.AuthenticationHeaderValue("Basic", Convert.ToBase64String(authBytes));

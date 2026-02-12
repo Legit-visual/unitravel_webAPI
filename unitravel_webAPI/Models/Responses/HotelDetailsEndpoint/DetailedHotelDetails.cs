@@ -1,53 +1,54 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using unitravel_webAPI.Helpers;
+using unitravel_webAPI.Helpers.unitravel_webAPI.Helpers;
 
 namespace unitravel_webAPI.Models.Responses.HotelDetails
 {
     public class DetailedHotelDetails
     {
-        [JsonProperty("HotelCode")]
+        [JsonProperty("hotelCode")]
         public string HotelCode { get; set; }
-        [JsonProperty("HotelName")]
+        
+        [JsonProperty("hotelName")]
         public string HotelName { get; set; }
-        [JsonProperty("Description")]
+        
+        [JsonProperty("description")]
         public string Description { get; set; }
-        [JsonProperty("HotelFacilities")]
-        public List<string> HotelFacilities { get; set; }
-        [JsonProperty("Attractions")]
-        public Attraction Attractions { get; set; }
-        [JsonProperty("Images")]
+
+        // --- IMAGES (Necháme List<string>, v logu vypadá OK) ---
+        [JsonProperty("images")]
         public List<string> Images { get; set; }
-        [JsonProperty("Address")]
-        public string Address { get; set; }
-        [JsonProperty("PinCode")]
-        public string PinCode { get; set; }
-        [JsonProperty("CityId")]
-        public string CityId { get; set; }
-        [JsonProperty("CountryName")]
-        public string CountryName { get; set; }
-        [JsonProperty("PhoneNumber")]
-        public string PhoneNumber { get; set; }
-        [JsonProperty("FaxNumber")]
-        public string FaxNumber { get; set; }
-        [JsonProperty("Map")]
-        public string Map {  get; set; }
-        [JsonProperty("HotelRating")]
-        public int HotelRating { get; set; }
-        [JsonProperty("CityName")]
-        public string CityName { get; set; }
-        [JsonProperty("CountryCode")]
-        public string CountryCode { get; set; }
-        [JsonProperty("CheckInTime")]
-        public string CheckInTime { get; set; }
-        [JsonProperty("CheckOutTime")]
-        public string CheckOutTime { get; set; }
+
+        [JsonProperty("hotelFacilities")]
+        [JsonConverter(typeof(DebugTboConverter))]
+        public List<string> HotelFacilities { get; set; } = new List<string>();
+
+        [JsonProperty("attractions")]
+        [JsonConverter(typeof(DebugTboConverter))]
+        public Dictionary<string, string> Attractions { get; set; } = new Dictionary<string, string>();
+
+        [JsonProperty("address")] public string Address { get; set; }
+        [JsonProperty("pinCode")] public string PinCode { get; set; }
+        [JsonProperty("cityId")] public string CityId { get; set; }
+        [JsonProperty("countryName")] public string CountryName { get; set; }
+        [JsonProperty("phoneNumber")] public string PhoneNumber { get; set; }
+        [JsonProperty("faxNumber")] public string FaxNumber { get; set; }
+        [JsonProperty("map")] public string Map { get; set; }
+        
+        // ZMĚNA NA STRING (PRO JISTOTU)
+        [JsonProperty("hotelRating")] public string HotelRating { get; set; } 
+        
+        [JsonProperty("cityName")] public string CityName { get; set; }
+        [JsonProperty("countryCode")] public string CountryCode { get; set; }
+        [JsonProperty("checkInTime")] public string CheckInTime { get; set; }
+        [JsonProperty("checkOutTime")] public string CheckOutTime { get; set; }
 
         public DetailedHotelDetails()
         {
             HotelCode = string.Empty;
             HotelName = string.Empty;
             Description = string.Empty;
-            HotelFacilities = new List<string>();
-            Attractions = new Attraction();
             Images = new List<string>();
             Address = string.Empty;
             PinCode = string.Empty;
@@ -56,33 +57,11 @@ namespace unitravel_webAPI.Models.Responses.HotelDetails
             PhoneNumber = string.Empty;
             FaxNumber = string.Empty;
             Map = string.Empty;
-            HotelRating = 0;
+            HotelRating = string.Empty;
             CityName = string.Empty;
             CountryCode = string.Empty;
             CheckInTime = string.Empty;
             CheckOutTime = string.Empty;
-        }
-
-        public DetailedHotelDetails(string hotelCode, string hotelName, string description, List<string> hotelFacilities, Attraction attractions, List<string> images, string address, string pinCode, string cityId, string countryName, string phoneNumber, string faxNumber, string map, int hotelRating, string cityName, string countryCode, string checkInTime, string checkOutTime)
-        {
-            HotelCode = hotelCode;
-            HotelName = hotelName;
-            Description = description;
-            HotelFacilities = hotelFacilities;
-            Attractions = attractions;
-            Images = images;
-            Address = address;
-            PinCode = pinCode;
-            CityId = cityId;
-            CountryName = countryName;
-            PhoneNumber = phoneNumber;
-            FaxNumber = faxNumber;
-            Map = map;
-            HotelRating = hotelRating;
-            CityName = cityName;
-            CountryCode = countryCode;
-            CheckInTime = checkInTime;
-            CheckOutTime = checkOutTime;
         }
     }
 }

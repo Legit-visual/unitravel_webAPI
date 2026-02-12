@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using unitravel_webAPI.Helpers;
 
 namespace unitravel_webAPI.Models.Responses.BookingDetail
 {
@@ -15,6 +16,7 @@ namespace unitravel_webAPI.Models.Responses.BookingDetail
         [JsonProperty("TotalTax")]
         public decimal TotalTax { get; set; }
         [JsonProperty("RoomPromotion")]
+        [JsonConverter(typeof(SingleOrArrayConverter<string>))]
         public List<string> RoomPromotion { get; set; }
 
         public Rooms()
